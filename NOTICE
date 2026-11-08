@@ -1,0 +1,41 @@
+来源与改动声明
+================
+
+本仓库是一个自托管的高德地图去广告 Surge 模块，派生自下列公开工作。
+
+上游模块
+--------
+  QingRex/LoonKissSurge
+  Surge/Beta/高德地图去广告.beta.sgmodule
+  https://github.com/QingRex/LoonKissSurge
+  署名：RuCu6 (https://github.com/RuCu6)、kelv1n1n、可莉 (https://hub.kelee.one)
+
+上游模块中的 [Rule]、[Body Rewrite]、[Map Local] 文本在本仓库中沿用（接口路径与字段名为
+抓包得到的事实性信息），并做了下列改动：
+
+  - [Script] 的 script-path 全部改为本仓库自托管脚本；
+  - 修正两条重名脚本条目（Surge 以名称为键）；
+  - 所有脚本增加 max-size=1048576；
+  - 关闭 v.smtcdns.com 整域 REJECT（改为注释，可选）。
+
+脚本
+----
+  Script/amap.ads.js 为本仓库重新实现：数据表驱动的处理规则、URL host+pathname 双重校验、
+  全程 fail-open。行为等价性参考了以下实现（用于确认每个接口该删哪些字段）：
+
+  kelee.one/Resource/JavaScript/Amap/Amap_remove_ads.js（作者同上）
+  镜像：mihoyo-typ/KeleeOne @ Loon/Script/Amap_remove_ads.js（2025-09-01 版本）
+
+  RuCu6/Loon @ Scripts/amap.js（上游注释中标注的原始出处）
+
+  上述脚本均未声明开源许可。本仓库不复制其代码文本，只复用「哪个接口的哪个字段是推广」
+  这类不可版权的事实；脚本结构、错误处理与测试均独立编写。若原作者认为署名或使用方式
+  需要调整，请开 issue，会立即配合修改。
+
+图标
+----
+  #!icon 指向 luestr/IconResource 的高德图标，仅作展示，不随本仓库分发。
+
+许可
+----
+  本仓库自有代码以 MIT 发布（见 LICENSE）。上游材料的权利仍归其作者。

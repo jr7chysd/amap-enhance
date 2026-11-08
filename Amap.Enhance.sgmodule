@@ -1,23 +1,18 @@
 #!name=高德地图去广告（自托管）
-#!desc=过滤高德地图开屏广告、各页面推广与推荐位，精简「我的」页面。规则与脚本全部托管于本仓库，不加载任何第三方 JS。
-#!author=jr7chysd（自托管整理，规则研究来自 RuCu6 / kelv1n1n / 可莉）
+#!desc=过滤高德地图开屏广告、各页面推广与推荐位，精简「我的」页面。
+#!author=jr7chysd
 #!category=去广告
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Amap.png
 #!openUrl=https://apps.apple.com/cn/app/id461703208
 #!tag=去广告,高德地图,AMap
 #!homepage=https://github.com/jr7chysd/amap-enhance
 #!date=2026-11-08
-#
-# 与上游 QingRex/LoonKissSurge 版本的主要差异（安全加固）：
-#   1. script-path 改为本仓库自托管脚本，内容可审计、可 diff，不再依赖 kelee.one 的远程 JS；
-#   2. MITM 由 *.amap.com 收窄为实际用到的 6 个主机，减少无关解密；
-#   3. 所有 http-response 脚本加上 max-size=1048576，避免超大响应体占用内存；
-#   4. v.smtcdns.com 全域 REJECT 默认关闭（该 CDN 可能被其它 App 复用），需要时手动开启。
+# Self-hosted. See SECURITY.md for the audit notes.
 
 [Rule]
 DOMAIN,amap-aos-info-nogw.amap.com,REJECT,extended-matching,pre-matching
 DOMAIN,free-aos-cdn-image.amap.com,REJECT,extended-matching,pre-matching
-# 可选：高德开屏/贴片视频 CDN，整域拒绝可能影响其它使用该 CDN 的 App，默认关闭
+# Optional: AMap video CDN, may affect other apps. Enable if needed.
 # DOMAIN-SUFFIX,v.smtcdns.com,REJECT,extended-matching,pre-matching
 
 [Body Rewrite]

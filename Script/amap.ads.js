@@ -1,15 +1,7 @@
 /**
- * 高德地图去广告 —— 自托管 http-response 脚本（Surge / Loon / Shadowrocket）
- *
- * 安全约定（详见仓库 SECURITY.md）
- *   1. 只读 $response.body，在内存中删改 JSON 字段，然后 $done 原样回传；
- *      不发起网络请求、不读写持久化存储、不打印日志、不做任何动态求值。
- *   2. 解析失败或结构不符时 fail-open：原样放行响应，绝不阻塞地图功能。
- *   3. 先看 URL 的 host + pathname 再决定处理哪个接口，不靠整串 includes，
- *      避免 query 参数里出现同名片段被误伤。
- *   4. 只删除/清空已知推广字段，不写业务字段，不改变非广告字段的类型。
- *
- * 维护提示：新增接口时，先在 RULES 里加一条，再补一条 tests/ 中的用例。
+ * AMap ad remover — http-response script for Surge.
+ * Rewrites known ad fields only, and fails open on anything unexpected.
+ * See SECURITY.md for the data-flow guarantees.
  */
 
 (function () {

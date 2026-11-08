@@ -1,6 +1,6 @@
 /**
- * AMap ad remover — http-response script for Surge.
- * Rewrites known ad fields only, and fails open on anything unexpected.
+ * AMap Enhance — http-response script for Surge.
+ * Trims known promo fields only, and fails open on anything unexpected.
  * See SECURITY.md for the data-flow guarantees.
  */
 

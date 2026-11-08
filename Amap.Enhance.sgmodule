@@ -1,10 +1,9 @@
-#!name=高德地图去广告（自托管）
-#!desc=过滤高德地图开屏广告、各页面推广与推荐位，精简「我的」页面。
+#!name=AMap Enhance (Self-Hosted)
+#!desc=Cleaner AMap: no splash promos, less in-page recommendation clutter, tidier Profile page.
 #!author=jr7chysd
-#!category=去广告
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Amap.png
 #!openUrl=https://apps.apple.com/cn/app/id461703208
-#!tag=去广告,高德地图,AMap
+#!tag=Enhance,AMap
 #!homepage=https://github.com/jr7chysd/amap-enhance
 #!date=2026-11-08
 # Self-hosted. See SECURITY.md for the audit notes.
